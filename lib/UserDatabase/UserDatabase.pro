@@ -14,10 +14,12 @@ CONFIG += staticlib
 QMAKE_CXXFLAGS += --std=c++14
 
 SOURCES += UserDatabase.cpp \
-    Valuta.cpp
+    Valuta.cpp \
+    ItemDatabase.cpp
 
 HEADERS += UserDatabase.h \
-    Valuta.hpp
+    Valuta.hpp \
+    ItemDatabase.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target

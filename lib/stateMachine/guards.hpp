@@ -6,8 +6,8 @@
 
 namespace OsaaMat
 {
-	const auto creditOk = []( UserDatabase& db, const Purchase& barcode ){ return db.credit() > barcode.price; };
-	const auto userValid = []( UserDatabase& db, const Login& userNumber ){ return db.exists( QString( userNumber.userString ) ); };
-	const auto userInvalid = []( UserDatabase& db, const Login& userNumber ){ return !db.exists( userNumber.userString ); };
+	const auto creditOk = []( UserDatabase& db, const AcceptPurchase& e ){ return db.credit() > e.price; };
+	const auto userValid = []( UserDatabase& db, const Login& e ){ return db.exists( e.userString ); };
+	const auto userInvalid = []( UserDatabase& db, const Login& e ){ return !db.exists( e.userString ); };
 }
 #endif // GUARDS_HPP

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file>Bender.otf</file>
+        <file>DejaVuSans.ttf</file>
+    </qresource>
+</RCC>
