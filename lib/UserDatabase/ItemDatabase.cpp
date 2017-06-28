@@ -1,4 +1,5 @@
 ﻿#include "ItemDatabase.hpp"
+#include <QDebug>
 
 ItemDatabase::ItemDatabase()
 {

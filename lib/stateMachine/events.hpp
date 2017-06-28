@@ -14,7 +14,7 @@ struct Purchase{};
 struct AcceptPurchase{ Valuta price = 0; };
 struct CancelPurchase{};
 struct DepositAmount{};
-struct AcceptAmount{};
+struct AcceptAmount{ Valuta credits = 0; };
 struct CancelAmount{};
 }
 #endif // EVENTS_HPP

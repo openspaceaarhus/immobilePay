@@ -1,7 +1,10 @@
 ﻿#ifndef ITEMDATABASE_HPP
 #define ITEMDATABASE_HPP
 
+#include <QString>
+#include <QImage>
 #include "Valuta.hpp"
+
 
 class ItemDatabase
 {

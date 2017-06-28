@@ -10,6 +10,26 @@ Valuta::Valuta(int integer)
 {
 }
 
+bool Valuta::operator==(const Valuta other)
+{
+	return denominator == other.denominator;
+}
+
+bool Valuta::operator!=(const Valuta other)
+{
+	return denominator != other.denominator;
+}
+
+bool Valuta::operator>(const Valuta other)
+{
+	return denominator > other.denominator;
+}
+
+double Valuta::printOut()
+{
+	return denominator/100.0;
+}
+
 Valuta operator+(Valuta lhs, const Valuta &rhs)
 {
 	lhs += rhs;

@@ -26,6 +26,18 @@ bool UserDatabase::exists(QString userNumber)
 	}
 }
 
+void UserDatabase::add(Valuta amount)
+{
+	qDebug() << QString( "Adding %1 to %2" ).arg( amount.printOut() ).arg( currentUser );
+	database[ currentUser ] += amount;
+}
+
+void UserDatabase::subtract( Valuta amount )
+{
+	qDebug() << QString( "Subtracting %1 from %2" ).arg( amount.printOut() ).arg( currentUser );
+	database[ currentUser ] -= amount;
+}
+
 bool UserDatabase::addUser()
 {
 	if ( exists( currentUser ) )
@@ -35,6 +47,12 @@ bool UserDatabase::addUser()
 	else
 	{
 		users.append( currentUser );
+		database[ currentUser ] = Valuta{ 0 };
 		return true;
 	}
+}
+
+Valuta UserDatabase::credit() const
+{
+	return database[ currentUser ];
 }

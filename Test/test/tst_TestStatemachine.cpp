@@ -20,6 +20,8 @@ class TestStatemachine : public QObject
 		void TestInvalidUserPutsStateMachineInAddUser();
 		void TestRejectUserCreationPutsStateMachineInIdle();
 		void TestAcceptUserCreatesANewUser();
+		void GivenALoggedInUserAddCashAddsCredits();
+		void GivenALoggedInUserWithCashBuysAnItemTheAmountIsSubtracted();
 
 };
 
@@ -58,6 +60,30 @@ void TestStatemachine::TestAcceptUserCreatesANewUser()
 	machine->process_event( OsaaMat::AcceptUserCreation{} );
 	QVERIFY( machine->is( "Idle"_s ) );
 	QVERIFY( db.exists( "00000001" ) );
+}
+
+void TestStatemachine::GivenALoggedInUserAddCashAddsCredits()
+{
+	using namespace boost::sml;
+	machine->process_event( OsaaMat::Login{ "00000001" } );
+	QVERIFY( machine->is( "LoggedIn"_s ) );
+	machine->process_event( OsaaMat::DepositAmount{} );
+	QVERIFY( machine->is( "Depositing"_s ) );
+	machine->process_event( OsaaMat::AcceptAmount{ 100 } );
+	QVERIFY( machine->is( "LoggedIn"_s ) );
+}
+
+void TestStatemachine::GivenALoggedInUserWithCashBuysAnItemTheAmountIsSubtracted()
+{
+	using namespace boost::sml;
+	machine->process_event( OsaaMat::Login{ "00000001" } );
+	QVERIFY( machine->is( "LoggedIn"_s ) );
+	auto remember = db.credit();
+	machine->process_event( OsaaMat::Purchase{} );
+	QVERIFY( machine->is( "Buying"_s ) );
+	machine->process_event( OsaaMat::AcceptPurchase{ Valuta{ 20 } } );
+	QVERIFY( db.credit() == remember - Valuta{ 20 } );
+	// Verify that the amount in the users "wallet" is reduced by the value of the purchase
 }
 
 QTEST_APPLESS_MAIN(TestStatemachine)

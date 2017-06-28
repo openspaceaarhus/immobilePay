@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QStringList>
+#include <QMap>
 #include "Valuta.hpp"
 
 class UserDatabase
@@ -13,11 +14,13 @@ class UserDatabase
 		UserDatabase( QString filename );
 		bool exists( QString userNumber );
 		void subtract( Valuta amount );
+		void add( Valuta amount );
 		bool addUser( void );
-		Valuta credit( void );
+		Valuta credit( void ) const;
 	private:
 		QStringList users;
 		QString currentUser;
+		QMap<QString, Valuta> database;
 };
 
 #endif // USERDATABASE_H
