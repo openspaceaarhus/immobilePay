@@ -1,6 +1,15 @@
-import QtQuick 2.0
+﻿import QtQuick 2.0
+import "imports/Immobile"
 
 Rectangle {
-	width: 100
-	height: 62
+	id: rootItem
+	width: 1600
+	height: 900
+	Text
+	{
+		anchors.centerIn: parent
+		font.family: Constants.fontLoader.name
+		text: "Please scan RFID"
+		font.pointSize: parent.width / 20
+	}
 }

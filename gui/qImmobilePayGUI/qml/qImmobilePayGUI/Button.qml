@@ -7,11 +7,12 @@ Rectangle {
 	color: gray
 	property alias text: textField.text
 	property alias font: textField.font
+	property alias textColor: textField.color
 	Text
 	{
 		id: textField
 		anchors.centerIn: parent
-		font.pointSize: 12
+		font.pointSize: parent.height * 0.707
 	}
 	MouseArea
 	{

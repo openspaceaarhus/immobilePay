@@ -3,4 +3,8 @@
         <file>Bender.otf</file>
         <file>DejaVuSans.ttf</file>
     </qresource>
+    <qresource prefix="/imports">
+        <file>qml/qImmobilePayGUI/imports/Immobile/Constants.qml</file>
+        <file>qml/qImmobilePayGUI/imports/Immobile/qmldir</file>
+    </qresource>
 </RCC>
