@@ -13,7 +13,7 @@ Rectangle {
 		anchors.top: parent.top
 		anchors.left: parent.left
 		anchors.right: parent.right
-		border.color: "#1E1E1E"
+		border.color: Constants.techBlack
 		height: Constants.headerSize
 		Text {
 			id: header
@@ -103,11 +103,6 @@ Rectangle {
 				target: stateRow
 				x: 0 * rootElement.width
 			}
-
-   PropertyChanges {
-	   target: creationPage1
-	   visible: true
-   }
 		},
 		State {
 			name: "CreateState"

@@ -8,6 +8,7 @@ Rectangle {
 	property alias text: textField.text
 	property alias font: textField.font
 	property alias textColor: textField.color
+	signal clicked
 	Text
 	{
 		id: textField
@@ -18,5 +19,6 @@ Rectangle {
 	{
 		anchors.fill: parent
 		id: buttonPush
+		onClicked: parent.clicked()
 	}
 }

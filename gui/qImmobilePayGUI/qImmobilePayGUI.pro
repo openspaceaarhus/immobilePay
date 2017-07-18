@@ -18,3 +18,6 @@ qtcAddDeployment()
 
 RESOURCES += \
     guiResources.qrc
+
+OTHER_FILES += \
+    qml/qImmobilePayGUI/DepositInput.qml

@@ -10,6 +10,6 @@ Rectangle {
 		anchors.centerIn: parent
 		font.family: Constants.fontLoader.name
 		text: "Please scan RFID"
-		font.pointSize: parent.width / 20
+		font.pixelSize: parent.width / 20
 	}
 }

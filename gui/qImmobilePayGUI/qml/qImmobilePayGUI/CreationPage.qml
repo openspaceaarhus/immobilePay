@@ -2,9 +2,11 @@
 import "imports/Immobile"
 
 Rectangle {
+	width: 610
+	height: 377
 	id: rootItem
 	Text {
-		font.pointSize: rootItem.height / 10
+		font.pixelSize: rootItem.height / 10
 		font.family: Constants.fontLoader.name
 		text: qsTr( "User not recognised.\nAdd new user?" )
 		anchors.centerIn: parent
