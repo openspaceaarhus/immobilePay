@@ -13,7 +13,7 @@ struct AcceptUserCreation{};
 struct Purchase{};
 struct AcceptPurchase{ Valuta price = 0; };
 struct CancelPurchase{};
-struct DepositAmount{};
+struct DepositAmount{ Valuta credits = 0; };
 struct AcceptAmount{ Valuta credits = 0; };
 struct CancelAmount{};
 }

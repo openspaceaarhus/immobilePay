@@ -20,7 +20,8 @@ SOURCES += UserDatabase.cpp \
 HEADERS += UserDatabase.h \
     Valuta.hpp \
     ItemDatabase.hpp \
-    Item.h
+    Item.h \
+    User.hpp
 unix {
     target.path = /usr/lib
     INSTALLS += target
