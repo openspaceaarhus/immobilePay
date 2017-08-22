@@ -48,6 +48,8 @@ Rectangle {
 				{
 					width: rootElement.width
 					height: informationBox.height
+					active: ( rootElement.state == "StartupState" ) || ( rootElement.state == "" )
+					onUserName: rootElement.state = "DepositState"
 				}
 				DepositPage
 				{

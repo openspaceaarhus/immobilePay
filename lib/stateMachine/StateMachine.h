@@ -20,10 +20,13 @@ namespace OsaaMat
 					,"LoggedIn"_s	+ event< Logout >							= "Idle"_s
 					,"LoggedIn"_s	+ event< Purchase >							= "Buying"_s
 					,"LoggedIn"_s	+ event< DepositAmount >					= "Depositing"_s
+					,"Buying"_s		+ event< Timeout >							= "Idle"_s
 					,"Buying"_s		+ event< AcceptPurchase >[ creditOk ]/ buy	= "NewUser"_s
 					,"Buying"_s		+ event< CancelPurchase >					= "LoggedIn"_s
+					,"Depositing"_s	+ event< Timeout >							= "Idle"_s
 					,"Depositing"_s	+ event< AcceptAmount > / deposit			= "LoggedIn"_s
 					,"Depositing"_s	+ event< CancelAmount >						= "LoggedIn"_s
+					,"NewUser"_s	+ event< Timeout >							= "Idle"_s
 					,"NewUser"_s	+ event< AcceptUserCreation > / createUser	= "Idle"_s
 					,"NewUser"_s	+ event< CancelUserCreation >				= "Idle"_s
 			);
